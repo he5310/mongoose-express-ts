@@ -1,5 +1,6 @@
 import bodyParser from "body-parser";
 import express from "express";
+import cors from 'cors'
 
 import connectDB from "../config/database";
 import auth from "./routes/api/auth";
@@ -15,6 +16,9 @@ connectDB();
 app.set("port", process.env.PORT || 5000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// 设置cors
+app.use(cors())
 
 // @route   GET /
 // @desc    Test Base API
